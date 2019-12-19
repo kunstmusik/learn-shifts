@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Learn Shifts">
+    <meta property="og:description" content="Web tool to learn bitshift patterns.">
+    <!-- <meta property="og:image" content="http://live.csound.com/web/og_image.png"> -->
+    <meta property="og:url" content="https://kunstmusik.github.io/learn-shifts">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:400,700" rel="stylesheet">
+
+    <title>Learn Shifts</title>
+    
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Learn Shifts</h1>
+
+        <div class="bit-container">
+          <div class="row-head">
+            <p>Binary:</p>
+            <p>Base10:</p>
+            <p>Processed:</p>
+          </div>
+          <div style="grid-column-start: 2" class="mono">
+            <p id="binary">0000</p>
+            <p id="base10">0</p>
+            <p id="processed">0</p>
+          </div>
+        </div>
+
+        <div>
+  <textarea id="formula" rows="4" cols="50">        
+    n
+  </textarea>
+  <input type="button" id="evalFormula" value="Update"/>
+        </div>
+
+      </section>
+      <section id="instructions">
+        <h2>Instructions</h2>
+        <p>
+          The above pattern shows n as a monotonically increasing time counter. It is the basis for bitshift patterns for this site.
+        </p>
+        <p>
+          Bitshift patterns can be used in many systems including:
+        </p>
+        <ul>
+          <li>csound-live-code (online livecoding environment and csound library): <a href="https://live.csound.com">online tool</a> | 
+            <a href="https://github.com/kunstmusik/csound-live-code/blob/master/doc/hexadecimal_beats.md">docs</a>
+          </li>
+        </ul>
+
+        <p>This resource and practice is heavily inspired by <a href="https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html">bytebeat</a>.
+      </section>
+
+      <footer>
+        <small>&copy; Copyright 2019, <a href="https://kunstmusik.com">Steven Yi</a>. All rights reserved.</small>
+      </footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+

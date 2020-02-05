@@ -1,10 +1,13 @@
 let formula = document.querySelector("#formula");
 let evalButton = document.querySelector("#evalFormula");
+
+let sourceFormula = document.querySelector("#sourceFormula");
+let sourceEvalButton = document.querySelector("#evalSourceFormula");
 let lengthOptions = document.querySelector("#lengthOptions");
 
 let i = 16;
 
-while(i <= 1024) {
+while(i <= 2048) {
   let opt = document.createElement("option");
   opt.value = i;
   opt.innerHTML = i;
@@ -12,7 +15,14 @@ while(i <= 1024) {
   i = i << 1;
 }
 
+let sourceFormulaFunc = (n) => n;
 let formulaFunc = (n) => n;
+
+const updateSourceFormula = () => {
+  let f = new Function('n', `return ${sourceFormula.value.trim()};`);
+  sourceFormulaFunc = f;
+  makeChart();
+}
 
 const updateFormula = () => {
   let f = new Function('n', `return ${formula.value.trim()};`);
@@ -22,7 +32,8 @@ const updateFormula = () => {
 
 
 evalButton.addEventListener('click', updateFormula);
-lengthOptions.addEventListener('change', updateFormula);
+sourceEvalButton.addEventListener('click', updateSourceFormula);
+lengthOptions.addEventListener('change', makeChart);
 
 //setInterval(updateCounter, time_value);
 
@@ -36,7 +47,7 @@ let xScale;
 function makeChart() {
   
   const length = lengthOptions.value;
-  const initial = Array.from({length: length}, (v, i) => i);
+  const initial = Array.from({length: length}, (v, i) => sourceFormulaFunc(i));
 
   const dataset = initial.map(formulaFunc);
   const charts = d3.select("#graph");
